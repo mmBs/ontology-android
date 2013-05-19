@@ -6,14 +6,14 @@
     <LinearLayout style="@style/FormContainer"
         android:orientation="vertical">
 
-        <TextView android:id="@+id/tv_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_text"
-        android:gravity="center"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        />
+        <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_text"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin" />
 
         <EditText
                 android:id="@+id/et_name"
@@ -21,7 +21,6 @@
                 android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
                 android:hint="@string/et_name" />
 
         <EditText
@@ -35,7 +34,7 @@
         <Button android:id="@+id/btn_action"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:text="@string/btn_action"
                 android:paddingLeft="32dp"
                 android:paddingRight="32dp"
