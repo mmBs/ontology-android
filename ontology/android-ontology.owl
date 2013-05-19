@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/michal/ontologies/2013/4/untitled-ontology-15"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.semanticweb.org/michal/ontologies/2013/4/untitled-ontology-15"
+     versionIRI="http://www.agh.edu.pl/eaiib/android/ontology">
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Declaration>
+        <Class IRI="#Activity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Application"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Application1"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Button"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EditText"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Listener"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MainActivity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OnClickListener"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TextView"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasListeners"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMainActivity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasStructure"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasHint"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasIcon"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLabel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasText"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasTheme"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Application"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasIcon"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Application"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasLabel"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Application"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasTheme"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Application1"/>
+        <Class IRI="#Application"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Application1"/>
+        <ObjectExactCardinality cardinality="3">
+            <ObjectProperty IRI="#hasStructure"/>
+            <Class IRI="#TextView"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Button"/>
+        <Class IRI="#TextView"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Button"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hasListeners"/>
+            <Class IRI="#Listener"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EditText"/>
+        <Class IRI="#TextView"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EditText"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasHint"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MainActivity"/>
+        <Class IRI="#Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OnClickListener"/>
+        <Class IRI="#Listener"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TextView"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasText"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Activity"/>
+        <Class IRI="#Application"/>
+        <Class IRI="#Listener"/>
+        <Class IRI="#TextView"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Button"/>
+        <Class IRI="#EditText"/>
+    </DisjointClasses>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasListeners"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasMainActivity"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasStructure"/>
+    </FunctionalObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasListeners"/>
+        <Class IRI="#Listener"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMainActivity"/>
+        <Class IRI="#Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasStructure"/>
+        <Class IRI="#TextView"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasListeners"/>
+        <Class IRI="#Listener"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMainActivity"/>
+        <Class IRI="#Activity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasStructure"/>
+        <Class IRI="#TextView"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasText"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
