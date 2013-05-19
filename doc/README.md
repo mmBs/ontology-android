@@ -1,9 +1,6 @@
 ontology-android
 ================
 
-ontology-android
-================
-
 ####Application
 
 ---
