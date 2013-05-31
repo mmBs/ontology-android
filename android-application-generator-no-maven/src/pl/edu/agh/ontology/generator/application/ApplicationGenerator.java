@@ -18,22 +18,44 @@ import pl.edu.agh.ontology.generator.application.domain.OnClickListener;
 import pl.edu.agh.ontology.generator.application.domain.SimpleMainActivity;
 import pl.edu.agh.ontology.generator.application.domain.TextView;
 import pl.edu.agh.ontology.generator.application.domain.Vocabulary;
+import pl.edu.agh.ontology.generator.application.exception.OntologyFileNotExistsExcpetion;
 
 /**
  * 
  */
-public class App {
-	private static final String ANDROID_APPLICATION_IRI = "android-ontology.owl";
-	private static final String APP_NAME = "_FIRST";
+public class ApplicationGenerator implements Runnable {
 
-	public static void main(String[] args) {
+	private final File ONTOLOGY_FILE;
+	private final String APP_NAME;
+
+	public ApplicationGenerator(String applicationName, String androidApplicationOntologyFilePath) throws OntologyFileNotExistsExcpetion {
+		APP_NAME = applicationName;
+		File file = new File(androidApplicationOntologyFilePath);
+		checkIfExistsOntologyFile(file);
+		ONTOLOGY_FILE = file;
+	}
+
+	public ApplicationGenerator(String applicationName) throws OntologyFileNotExistsExcpetion {
+		APP_NAME = applicationName;
+		File file = new File("android-ontology.owl");
+		checkIfExistsOntologyFile(file);
+		ONTOLOGY_FILE = file;
+	}
+
+	private void checkIfExistsOntologyFile(File file) throws OntologyFileNotExistsExcpetion {
+		if (file.exists() == false) {
+			throw new OntologyFileNotExistsExcpetion(file);
+		}
+	}
+
+	@Override
+	public void run() {
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		File file = new File(ANDROID_APPLICATION_IRI);
 		OWLOntology androidApplicationOntology = null;
 
 		try {
-			androidApplicationOntology = manager.loadOntologyFromOntologyDocument(file);
+			androidApplicationOntology = manager.loadOntologyFromOntologyDocument(ONTOLOGY_FILE);
 		} catch (OWLOntologyCreationException e) {
 			e.printStackTrace();
 		}
@@ -133,7 +155,8 @@ public class App {
 		} catch (OWLOntologyStorageException e) {
 			e.printStackTrace();
 		}
-		
+
 		System.out.println("END");
+
 	}
 }
