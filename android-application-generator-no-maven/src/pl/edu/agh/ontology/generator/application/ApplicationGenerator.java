@@ -20,9 +20,6 @@ import pl.edu.agh.ontology.generator.application.domain.TextView;
 import pl.edu.agh.ontology.generator.application.domain.Vocabulary;
 import pl.edu.agh.ontology.generator.application.exception.OntologyFileNotExistsExcpetion;
 
-/**
- * 
- */
 public class ApplicationGenerator implements Runnable {
 
 	private final File ONTOLOGY_FILE;
@@ -58,6 +55,7 @@ public class ApplicationGenerator implements Runnable {
 			androidApplicationOntology = manager.loadOntologyFromOntologyDocument(ONTOLOGY_FILE);
 		} catch (OWLOntologyCreationException e) {
 			e.printStackTrace();
+			return;
 		}
 
 		AndroidApplicationFactory androidApplicationFactory = new AndroidApplicationFactory(androidApplicationOntology);
