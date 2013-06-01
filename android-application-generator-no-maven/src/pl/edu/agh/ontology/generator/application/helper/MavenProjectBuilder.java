@@ -1,6 +1,5 @@
 package pl.edu.agh.ontology.generator.application.helper;
 
-import java.io.File;
 import java.io.IOException;
 
 import pl.edu.agh.ontology.generator.application.helper.exception.MavenProjectException;

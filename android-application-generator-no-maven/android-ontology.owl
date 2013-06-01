@@ -171,20 +171,20 @@ Class: <http://www.agh.edu.pl/eaiib/android/ontology#EditText>
         <http://www.agh.edu.pl/eaiib/android/ontology#Button>
     
     
-Individual: <PRESS_BUTTON_FIRST>
-
-    Types: 
-        <http://www.agh.edu.pl/eaiib/android/ontology#OnClickListener>
-    
-    
-Individual: <Show_FIRST>
+Individual: <Button_app1>
 
     Types: 
         <http://www.agh.edu.pl/eaiib/android/ontology#Button>
     
     Facts:  
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasListeners>  <PRESS_BUTTON_FIRST>,
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasText>  "hasTextButton-VALUE"^^xsd:string
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasListeners>  <OnClickListener_app1>,
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasText>  "Press1"^^xsd:string
+    
+    
+Individual: <PRESS_BUTTON_FIRST>
+
+    Types: 
+        <http://www.agh.edu.pl/eaiib/android/ontology#OnClickListener>
     
     
 Individual: <Simple_FIRST>
@@ -199,13 +199,37 @@ Individual: <Simple_FIRST>
      <http://www.agh.edu.pl/eaiib/android/ontology#hasStructure>  <Last_Name_FIRST>
     
     
-Individual: <Introduction_FIRST>
+Individual: <FirstName_app1>
 
     Types: 
-        <http://www.agh.edu.pl/eaiib/android/ontology#TextView>
+        <http://www.agh.edu.pl/eaiib/android/ontology#EditText>
     
     Facts:  
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasText>  "hasText-textView-VALUE"^^xsd:string
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasHint>  "Type here your surename1"^^xsd:string
+    
+    
+Individual: <MainActivity_app1>
+
+    Types: 
+        <http://www.agh.edu.pl/eaiib/android/ontology#OWLClass_00000000000000000007>
+    
+    Facts:  
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasStructure>  <FirstName_app1>,
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasStructure>  <TextView_app1>,
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasStructure>  <LastName_app1>,
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasStructure>  <Button_app1>
+    
+    
+Individual: <app1>
+
+    Types: 
+        <http://www.agh.edu.pl/eaiib/android/ontology#Application>
+    
+    Facts:  
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasMainActivity>  <MainActivity_app1>,
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasIcon>  "/home/skywalker/workspaceAndroid/ontology-android/android-application-generator-no-maven/ic_launcher"^^xsd:string,
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasLabel>  "AndroidOntology1"^^xsd:string,
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasTheme>  "AppTheme"^^xsd:string
     
     
 Individual: <Application_FIRST>
@@ -220,16 +244,19 @@ Individual: <Application_FIRST>
      <http://www.agh.edu.pl/eaiib/android/ontology#hasTheme>  "hasTheme-VALUE"^^xsd:string
     
     
-Individual: <Application_FIRST>
+Individual: <TextView_app1>
 
     Types: 
-        <http://www.agh.edu.pl/eaiib/android/ontology#Application>
+        <http://www.agh.edu.pl/eaiib/android/ontology#TextView>
     
     Facts:  
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasMainActivity>  <Simple_FIRST>,
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasTheme>  "hasTheme-VALUE"^^xsd:string,
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasLabel>  "hasLabel-VALUE"^^xsd:string,
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasIcon>  "hasIcon-VALUE"^^xsd:string
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasText>  "Simple template for Android Ontology Project by Michal Bialas and Michal Gruszczynski1"^^xsd:string
+    
+    
+Individual: <OnClickListener_app1>
+
+    Types: 
+        <http://www.agh.edu.pl/eaiib/android/ontology#OnClickListener>
     
     
 Individual: <Introduction_FIRST>
@@ -250,6 +277,15 @@ Individual: <First_Name_FIRST>
      <http://www.agh.edu.pl/eaiib/android/ontology#hasHint>  "hasHint1-edit1-VALUE"^^xsd:string
     
     
+Individual: <LastName_app1>
+
+    Types: 
+        <http://www.agh.edu.pl/eaiib/android/ontology#EditText>
+    
+    Facts:  
+     <http://www.agh.edu.pl/eaiib/android/ontology#hasHint>  "Type here your name1"^^xsd:string
+    
+    
 Individual: <Last_Name_FIRST>
 
     Types: 
@@ -257,42 +293,6 @@ Individual: <Last_Name_FIRST>
     
     Facts:  
      <http://www.agh.edu.pl/eaiib/android/ontology#hasHint>  "hasHint2-edit2-VALUE"^^xsd:string
-    
-    
-Individual: <Last_Name_FIRST>
-
-    Types: 
-        <http://www.agh.edu.pl/eaiib/android/ontology#EditText>
-    
-    Facts:  
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasHint>  "hasHint2-edit2-VALUE"^^xsd:string
-    
-    
-Individual: <Simple_FIRST>
-
-    Types: 
-        <http://www.agh.edu.pl/eaiib/android/ontology#OWLClass_00000000000000000007>
-    
-    Facts:  
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasStructure>  <Introduction_FIRST>,
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasStructure>  <Show_FIRST>,
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasStructure>  <Last_Name_FIRST>,
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasStructure>  <First_Name_FIRST>
-    
-    
-Individual: <PRESS_BUTTON_FIRST>
-
-    Types: 
-        <http://www.agh.edu.pl/eaiib/android/ontology#OnClickListener>
-    
-    
-Individual: <First_Name_FIRST>
-
-    Types: 
-        <http://www.agh.edu.pl/eaiib/android/ontology#EditText>
-    
-    Facts:  
-     <http://www.agh.edu.pl/eaiib/android/ontology#hasHint>  "hasHint1-edit1-VALUE"^^xsd:string
     
     
 Individual: <Show_FIRST>
