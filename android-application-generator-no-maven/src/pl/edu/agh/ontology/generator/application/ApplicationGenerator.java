@@ -139,7 +139,7 @@ public class ApplicationGenerator implements Runnable {
 		}
 	}
 
-	private synchronized void writeTextToFile(File file, String text) {
+	private void writeTextToFile(File file, String text) {
 
 		PrintWriter out = null;
 
@@ -296,8 +296,11 @@ public class ApplicationGenerator implements Runnable {
 
 		AndroidApplicationFactory androidApplicationFactory = new AndroidApplicationFactory(androidApplicationOntology);
 
-		Application application = androidApplicationFactory.createApplication(applicationName);
-
+		Application application = androidApplicationFactory.createApplication("#Application"+applicationName);
+		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+		System.out.println("application.getOwlIndividual().getIRI()=" + application.getOwlIndividual().getIRI());
+		System.out.println("Vocabulary.CLASS_APPLICATION.toString()=" + application.getOwlIndividual().toStringID());
+		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 		OWLDataProperty hasLabel = Vocabulary.DATA_PROPERTY_HASLABEL;
 		OWLDataProperty hasIcon = Vocabulary.DATA_PROPERTY_HASICON;
 		OWLDataProperty hasTheme = Vocabulary.DATA_PROPERTY_HASTHEME;

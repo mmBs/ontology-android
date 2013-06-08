@@ -16,27 +16,46 @@ public class Program {
 	public static void main(String[] args) {
 
 		CommandLine commandLine = null;
+		Option optionFromOntology = new Option("fromOntology", false, "The application will be created from existing ontology");
 		Option optionApplicationName = new Option("appName", true, "The application name");
 		Option optionOntologyFileName = new Option("op", true, "The path to ontology file");
 		Option applicationPropertiesFilePath = new Option("appProps", true, "The path to application properties file");
 		Options options = new Options();
-		options.addOption(optionApplicationName).addOption(optionOntologyFileName).addOption(applicationPropertiesFilePath);
+		options.addOption(optionApplicationName).addOption(optionOntologyFileName).addOption(applicationPropertiesFilePath).addOption(optionFromOntology);
 		CommandLineParser parser = new GnuParser();
 		try {
 			commandLine = parser.parse(options, args);
 			Thread applicationGeneratorThread = null;
 
-			if (commandLine.hasOption("appName") == true && commandLine.hasOption("op") == true) {
-				String appName = commandLine.getOptionValue("appName");
-				String ontologyFilePath = commandLine.getOptionValue("op");
-				applicationGeneratorThread = new Thread(new ApplicationGenerator(appName, ontologyFilePath));
-			} else if (commandLine.hasOption("appName") == true) {
-				String appName = commandLine.getOptionValue("appName");
-				applicationGeneratorThread = new Thread(new ApplicationGenerator(appName));
+			if (commandLine.hasOption("fromOntology")) {
+				if (commandLine.hasOption("appName") == true && commandLine.hasOption("op") == true) {
+					String appName = commandLine.getOptionValue("appName");
+					String ontologyFilePath = commandLine.getOptionValue("op");
+					applicationGeneratorThread = new Thread(new ApplicationGeneratorFromOntology(appName, ontologyFilePath));
+				} else if (commandLine.hasOption("appName") == true) {
+					String appName = commandLine.getOptionValue("appName");
+					applicationGeneratorThread = new Thread(new ApplicationGeneratorFromOntology(appName));
+				} else {
+
+					System.out.println("Wymagany conajmniej jeden argument: appName");
+					return;
+
+				}
 			} else {
 
-				System.out.println("Wymagany conajmniej jeden argument: appName");
-				return;
+				if (commandLine.hasOption("appName") == true && commandLine.hasOption("op") == true) {
+					String appName = commandLine.getOptionValue("appName");
+					String ontologyFilePath = commandLine.getOptionValue("op");
+					applicationGeneratorThread = new Thread(new ApplicationGenerator(appName, ontologyFilePath));
+				} else if (commandLine.hasOption("appName") == true) {
+					String appName = commandLine.getOptionValue("appName");
+					applicationGeneratorThread = new Thread(new ApplicationGenerator(appName));
+				} else {
+
+					System.out.println("Wymagany conajmniej jeden argument: appName");
+					return;
+
+				}
 
 			}
 
